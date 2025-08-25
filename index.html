@@ -64,7 +64,10 @@
     footer .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:14px}
 
     @media (max-width: 960px){ .hero-grid,.grid-3,.calc-wrap,.grid-2{grid-template-columns:1fr} header.hero .glow{height:40vh} }
-  </style>
+  .unmute-overlay{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.65);color:#fff;padding:14px 18px;border-radius:14px;font-size:16px;border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(4px);cursor:pointer;display:flex;align-items:center;gap:10px}
+.unmute-overlay:hover{background:rgba(0,0,0,.8)}
+@media (max-width: 480px){.unmute-overlay{padding:18px 22px;font-size:18px;border-radius:16px}}
+</style>
 </head>
 <body>
   <!-- HERO -->
@@ -93,7 +96,7 @@
       <div>
         <div class="media card">
           <!-- Video portrait dari GitHub -->
-          <video id="heroVideo" controls autoplay muted playsinline loop>
+          <video id="heroVideo" controls autoplay muted playsinline>
             <source src="https://raw.githubusercontent.com/Syafixit/landingaircond/main/pormolg.mp4" type="video/mp4" />
             Browser anda tidak menyokong video.
           </video>
