@@ -6,10 +6,7 @@
   <title>Promosi 50% Awesome – Aircond LG Dual Inverter (Ansuran)</title>
   <meta name="description" content="Promosi 50% Awesome 9 bulan pertama. Aircond LG Dual Inverter: jimat elektrik, udara bersih, waranti 10 tahun compressor, servis percuma. Ansuran mudah 5 tahun." />
   <style>
-    :root{
-      --lg-red:#da0f23; --lg-black:#111; --lg-gray:#646B73; --lg-light:#f6f7f9; --accent:#12b981; --gold:#f59e0b;
-      --radius:18px; --shadow:0 10px 30px rgba(17,24,39,.12);
-    }
+    :root{ --lg-red:#da0f23; --lg-black:#111; --lg-gray:#646B73; --lg-light:#f6f7f9; --accent:#12b981; --gold:#f59e0b; --radius:18px; --shadow:0 10px 30px rgba(17,24,39,.12); }
     *{box-sizing:border-box}
     html,body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";color:#0b1220;background:#fff}
     a{color:inherit;text-decoration:none}
@@ -20,7 +17,7 @@
     .btn-ghost{background:#fff;border:1px solid #e5e7eb}
     .pill{display:inline-flex;align-items:center;gap:.5rem;background:#ffeff1;color:var(--lg-red);padding:8px 12px;border-radius:999px;font-weight:700;font-size:.9rem}
     header.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#101114, #1f2937 60%, #0f172a);color:#fff}
-    header.hero .glow{position:absolute;inset:auto -20% -30% -20%;height:60vh;background:radial-gradient(60% 60% at 50% 10%, rgba(218,15,35,.45), transparent 60%) ;filter:blur(40px);opacity:.8}
+    header.hero .glow{position:absolute;inset:auto -20% -30% -20%;height:60vh;background:radial-gradient(60% 60% at 50% 10%, rgba(218,15,35,.45), transparent 60%);filter:blur(40px);opacity:.8}
     .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
     .headline{font-size:clamp(28px,4vw,44px);line-height:1.1;margin:16px 0 8px}
     .sub{font-size:clamp(16px,2vw,18px);opacity:.9}
@@ -29,8 +26,8 @@
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .trust{display:flex;gap:16px;flex-wrap:wrap;color:#e5e7eb;margin-top:14px;font-weight:600}
     .trust span{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);padding:8px 12px;border-radius:999px}
-    .media{aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17}
-    .media iframe,.media video{width:100%;height:100%;display:block}
+    .media{aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17}
+    .media video{width:100%;height:100%;display:block;object-fit:cover}
 
     /* Sections */
     section{padding:64px 0}
@@ -50,9 +47,7 @@
     .calc-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
     .calc{display:grid;gap:14px}
     label{font-weight:700}
-    select, input[type="text"], input[type="number"], button, .checkbox{
-      width:100%;padding:14px 14px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;font-size:16px
-    }
+    select, input[type="text"], input[type="number"], button, .checkbox{width:100%;padding:14px 14px;border:1px solid #e5e7eb;border-radius:12px;background:#fff;font-size:16px}
     .result{background:#0b1220;color:#fff;border-radius:14px;padding:16px;display:grid;gap:8px}
     .result .row{display:flex;justify-content:space-between;align-items:center;font-weight:700}
     .whatsapp{display:flex;flex-direction:column;gap:8px}
@@ -67,10 +62,7 @@
     footer{background:#0b1220;color:#cbd5e1}
     footer .meta{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px;font-size:14px}
 
-    @media (max-width: 960px){
-      .hero-grid,.grid-3,.calc-wrap,.grid-2{grid-template-columns:1fr}
-      header.hero .glow{height:40vh}
-    }
+    @media (max-width: 960px){ .hero-grid,.grid-3,.calc-wrap,.grid-2{grid-template-columns:1fr} header.hero .glow{height:40vh} }
   </style>
 </head>
 <body>
@@ -99,10 +91,13 @@
       </div>
       <div>
         <div class="media card">
-          <!-- Gantikan src YouTube di bawah -->
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" title="Video Promosi Aircond LG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <!-- Video portrait dari GitHub -->
+          <video controls autoplay muted playsinline loop>
+            <source src="https://raw.githubusercontent.com/Syafixit/landingaircond/main/pormolg.mp4" type="video/mp4" />
+            Browser anda tidak menyokong video.
+          </video>
         </div>
-        <p class="muted" style="margin-top:10px">👆 Masukkan video ringkas 30–60s: hook 50% + jimat elektrik + servis percuma + CTA kira ansuran.</p>
+        <p class="muted" style="margin-top:10px">👆 Video portrait 9:16: hook 50% + jimat elektrik + servis percuma + CTA kira ansuran.</p>
       </div>
     </div>
   </header>
@@ -122,30 +117,12 @@
       <h2 class="title">Kenapa pilih Aircond LG Ansuran?</h2>
       <p class="muted">Pakej lengkap supaya anda tak pening. Pasang dulu, bayar separuh 9 bulan pertama.</p>
       <div class="grid-3" style="margin-top:16px">
-        <div class="card pad model">
-          <div class="chip">❄️ DUAL Inverter</div>
-          <div class="muted">Sejuk cepat, jimat elektrik</div>
-        </div>
-        <div class="card pad model">
-          <div class="chip">🛡️ Ionizer++</div>
-          <div class="muted">Udara lebih bersih & sihat</div>
-        </div>
-        <div class="card pad model">
-          <div class="chip">📱 ThinQ (Wi‑Fi)</div>
-          <div class="muted">Kawal dari telefon – anytime</div>
-        </div>
-        <div class="card pad model">
-          <div class="chip">🔧 Servis Percuma</div>
-          <div class="muted">Ikut jadual sepanjang kontrak</div>
-        </div>
-        <div class="card pad model">
-          <div class="chip">💰 50% × 9 bulan</div>
-          <div class="muted">Ringankan komitmen awal</div>
-        </div>
-        <div class="card pad model">
-          <div class="chip">🏅 Waranti 10 tahun</div>
-          <div class="muted">Compressor (Residential model)</div>
-        </div>
+        <div class="card pad model"><div class="chip">❄️ DUAL Inverter</div><div class="muted">Sejuk cepat, jimat elektrik</div></div>
+        <div class="card pad model"><div class="chip">🛡️ Ionizer++</div><div class="muted">Udara lebih bersih & sihat</div></div>
+        <div class="card pad model"><div class="chip">📱 ThinQ (Wi‑Fi)</div><div class="muted">Kawal dari telefon – anytime</div></div>
+        <div class="card pad model"><div class="chip">🔧 Servis Percuma</div><div class="muted">Ikut jadual sepanjang kontrak</div></div>
+        <div class="card pad model"><div class="chip">💰 50% × 9 bulan</div><div class="muted">Ringankan komitmen awal</div></div>
+        <div class="card pad model"><div class="chip">🏅 Waranti 10 tahun</div><div class="muted">Compressor (Residential model)</div></div>
       </div>
     </div>
   </section>
@@ -155,36 +132,12 @@
     <div class="container">
       <h2 class="title">Pilihan HP (Bulanan Biasa)</h2>
       <div class="grid-3">
-        <div class="card pad model">
-          <b>1.0HP (Putih)</b>
-          <div class="price">RM80/bulan</div>
-          <div class="muted">Bilik kecil 8×10 hingga 10×12</div>
-        </div>
-        <div class="card pad model">
-          <b>1.5HP (Putih)</b>
-          <div class="price">RM90/bulan</div>
-          <div class="muted">Bilik sederhana 12×12 hingga 12×16</div>
-        </div>
-        <div class="card pad model">
-          <b>2.0HP (Putih)</b>
-          <div class="price">RM110/bulan</div>
-          <div class="muted">Ruang 14×16 hingga 16×20</div>
-        </div>
-        <div class="card pad model">
-          <b>2.5HP (Putih)</b>
-          <div class="price">RM120/bulan</div>
-          <div class="muted">Ruang besar/ruang tamu</div>
-        </div>
-        <div class="card pad model">
-          <b>1.5HP ArtCool (Hitam)</b>
-          <div class="price">RM100/bulan</div>
-          <div class="muted">Rekaan premium • ThinQ</div>
-        </div>
-        <div class="card pad model">
-          <b>2.5HP ArtCool (Hitam)</b>
-          <div class="price">RM130/bulan</div>
-          <div class="muted">Kuat & bergaya</div>
-        </div>
+        <div class="card pad model"><b>1.0HP (Putih)</b><div class="price">RM80/bulan</div><div class="muted">Bilik kecil 8×10 hingga 10×12</div></div>
+        <div class="card pad model"><b>1.5HP (Putih)</b><div class="price">RM90/bulan</div><div class="muted">Bilik sederhana 12×12 hingga 12×16</div></div>
+        <div class="card pad model"><b>2.0HP (Putih)</b><div class="price">RM110/bulan</div><div class="muted">Ruang 14×16 hingga 16×20</div></div>
+        <div class="card pad model"><b>2.5HP (Putih)</b><div class="price">RM120/bulan</div><div class="muted">Ruang besar/ruang tamu</div></div>
+        <div class="card pad model"><b>1.5HP ArtCool (Hitam)</b><div class="price">RM100/bulan</div><div class="muted">Rekaan premium • ThinQ</div></div>
+        <div class="card pad model"><b>2.5HP ArtCool (Hitam)</b><div class="price">RM130/bulan</div><div class="muted">Kuat & bergaya</div></div>
       </div>
     </div>
   </section>
@@ -250,18 +203,9 @@
     <div class="container">
       <h2 class="title">Apa pelanggan kami cakap</h2>
       <div class="grid-3">
-        <div class="card pad">
-          <p>“Pasang 2.0HP di ruang tamu, bunyi senyap. Bil turun dalam 2 bulan – puas hati!”</p>
-          <div class="muted">— Afiq, Puchong</div>
-        </div>
-        <div class="card pad">
-          <p>“Anak ada alergi. Ionizer++ rasa beza, udara tak berbau. Servis pun on‑time.”</p>
-          <div class="muted">— Kak Laila, Shah Alam</div>
-        </div>
-        <div class="card pad">
-          <p>“Promo 50% memang ringan. Lepas 9 bulan, dah stabil komitmen. Senang urus.”</p>
-          <div class="muted">— Mr. Lim, JB</div>
-        </div>
+        <div class="card pad"><p>“Pasang 2.0HP di ruang tamu, bunyi senyap. Bil turun dalam 2 bulan – puas hati!”</p><div class="muted">— Afiq, Puchong</div></div>
+        <div class="card pad"><p>“Anak ada alergi. Ionizer++ rasa beza, udara tak berbau. Servis pun on‑time.”</p><div class="muted">— Kak Laila, Shah Alam</div></div>
+        <div class="card pad"><p>“Promo 50% memang ringan. Lepas 9 bulan, dah stabil komitmen. Senang urus.”</p><div class="muted">— Mr. Lim, JB</div></div>
       </div>
     </div>
   </section>
@@ -270,26 +214,11 @@
   <section id="faq" style="background:var(--lg-light)">
     <div class="container">
       <h2 class="title">Soalan Lazim (FAQ)</h2>
-      <details open>
-        <summary>Betul ke 50% untuk 9 bulan pertama?</summary>
-        <p class="muted">Ya. Diskaun 50% diaplikasi pada kadar bulanan model anda untuk 9 bulan pertama. Bulan 10–60 ikut kadar bulanan biasa.</p>
-      </details>
-      <details>
-        <summary>Servis percuma macam mana?</summary>
-        <p class="muted">Servis berkala dijadualkan sepanjang kontrak. Pusat servis sah LG akan urus dan maklumkan temujanji.</p>
-      </details>
-      <details>
-        <summary>Kalau rosak?</summary>
-        <p class="muted">Hubungi pusat servis sah LG. Komponen compressor dilindungi waranti 10 tahun (Residential model). Diagnostik & pembaikan mengikut terma LG.</p>
-      </details>
-      <details>
-        <summary>Ada caj pemasangan?</summary>
-        <p class="muted">Pemasangan asas disediakan. Jika ada kerja tambahan (paip panjang, bracket khas), kos tambahan akan dimaklum & dipersetujui terlebih dahulu.</p>
-      </details>
-      <details>
-        <summary>Boleh pilih tarikh pemasangan?</summary>
-        <p class="muted">Boleh. Slot bergantung pada kawasan & ketersediaan juruteknik. Biasanya 2–5 hari bekerja.</p>
-      </details>
+      <details open><summary>Betul ke 50% untuk 9 bulan pertama?</summary><p class="muted">Ya. Diskaun 50% diaplikasi pada kadar bulanan model anda untuk 9 bulan pertama. Bulan 10–60 ikut kadar bulanan biasa.</p></details>
+      <details><summary>Servis percuma macam mana?</summary><p class="muted">Servis berkala dijadualkan sepanjang kontrak. Pusat servis sah LG akan urus dan maklumkan temujanji.</p></details>
+      <details><summary>Kalau rosak?</summary><p class="muted">Hubungi pusat servis sah LG. Komponen compressor dilindungi waranti 10 tahun (Residential model). Diagnostik & pembaikan mengikut terma LG.</p></details>
+      <details><summary>Ada caj pemasangan?</summary><p class="muted">Pemasangan asas disediakan. Jika ada kerja tambahan (paip panjang, bracket khas), kos tambahan akan dimaklum & dipersetujui terlebih dahulu.</p></details>
+      <details><summary>Boleh pilih tarikh pemasangan?</summary><p class="muted">Boleh. Slot bergantung pada kawasan & ketersediaan juruteknik. Biasanya 2–5 hari bekerja.</p></details>
     </div>
   </section>
 
@@ -316,7 +245,7 @@
 
   <script>
     const yearEl = document.getElementById('year');
-    yearEl.textContent = new Date().getFullYear();
+    if(yearEl) yearEl.textContent = new Date().getFullYear();
 
     const select = document.getElementById('modelSelect');
     const resultBox = document.getElementById('resultBox');
@@ -349,9 +278,8 @@
     function updateBtn(){
       const ok = !!select.value && agree.checked;
       const [model, priceStr, color] = (select.value||'||').split('|');
-      const bilikTxt = (bilik.value||'—');
-      const lokasiTxt = (lokasi.value||'—');
-      // mesej WhatsApp ikut format yang diminta (PROMOAIRCOND)
+      const bilikTxt = (bilik?.value||'—');
+      const lokasiTxt = (lokasi?.value||'—');
       const msg = `PROMOAIRCOND%0A%0AModel%3A%20${encodeURIComponent(model||'')}`+
                   `%0AWarna%3A%20${encodeURIComponent(color||'')}`+
                   `%0ASaiz%20bilik%3A%20${encodeURIComponent(bilikTxt)}`+
@@ -362,10 +290,10 @@
       waBtn.classList.toggle('disabled', !ok);
     }
 
-    select.addEventListener('change', compute);
-    agree.addEventListener('change', updateBtn);
-    bilik.addEventListener('input', updateBtn);
-    lokasi.addEventListener('input', updateBtn);
+    select?.addEventListener('change', compute);
+    agree?.addEventListener('change', updateBtn);
+    bilik?.addEventListener('input', updateBtn);
+    lokasi?.addEventListener('input', updateBtn);
   </script>
 </body>
 </html>
