@@ -29,8 +29,8 @@
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .trust{display:flex;gap:16px;flex-wrap:wrap;color:#e5e7eb;margin-top:14px;font-weight:600}
     .trust span{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);padding:8px 12px;border-radius:999px}
-    .media{aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17}
-    .media video{width:100%;height:100%;display:block;object-fit:cover}
+    .media{aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17}
+    .media iframe,.media video{width:100%;height:100%;display:block}
 
     /* Sections */
     section{padding:64px 0}
@@ -80,7 +80,7 @@
     <div class="container hero-grid" style="position:relative;z-index:1">
       <div>
         <span class="pill">🎉 Promosi 50% Awesome • 9 bulan pertama</span>
-        <h1 class="headline">Aircond LG Dual Inverter – <span style="color:var(--gold)">Jimat 50% Bayaran</span>, pasang terus tanpa risau!</h1>
+        <h1 class="headline">Aircond LG Dual Inverter – <span style="color:var(--gold)">Bayar Separuh Harga</span> dulu, pasang terus!</h1>
         <p class="sub">Jimat elektrik, udara lebih bersih, waranti compressor 10 tahun, dan servis berkala PERCUMA. Ansuran mudah 5 tahun. Tap-tap je 😉</p>
         <div class="badges">
           <span class="chip">❄️ Sejuk Cepat</span>
@@ -99,12 +99,10 @@
       </div>
       <div>
         <div class="media card">
-          <!-- Gantikan src GitHub raw link di bawah -->
-          <video controls autoplay muted playsinline>
-            <source src="https://github.com/Syafixit/landingaircond/blob/main/pormolg.mp4" type="video/mp4" />
-        </video>
+          <!-- Gantikan src YouTube di bawah -->
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1" title="Video Promosi Aircond LG" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <p class="muted" style="margin-top:10px">👆 Masukkan video portrait 30–60s (format 9:16): hook 50% + jimat elektrik + servis percuma + CTA kira ansuran.</p>
+        <p class="muted" style="margin-top:10px">👆 Masukkan video ringkas 30–60s: hook 50% + jimat elektrik + servis percuma + CTA kira ansuran.</p>
       </div>
     </div>
   </header>
@@ -233,4 +231,141 @@
         </div>
         <div class="card pad">
           <h3 style="margin:0 0 8px">Apa anda dapat dalam pakej ansuran?</h3>
-          <ul style="margin:0 0 10px 18px;line
+          <ul style="margin:0 0 10px 18px;line-height:1.7">
+            <li>✅ Diskaun <b>50% untuk 9 bulan pertama</b></li>
+            <li>✅ <b>Waranti compressor 10 tahun</b> (Residential model)</li>
+            <li>✅ <b>Servis berkala percuma</b> sepanjang kontrak</li>
+            <li>✅ Pemasangan asas & penghantaran</li>
+            <li>✅ Sokongan pusat servis sah LG</li>
+          </ul>
+          <div class="feature" style="margin-top:10px"><div>📌</div><div><b>Tip saiz HP:</b><br/><span class="muted">10×10 = 1.0HP • 12×12 = 1.5HP • 14×16 = 2.0HP • 16×20 = 2.5HP (anggaran; ambil kira siling, tingkap & cahaya matahari).</span></div></div>
+          <div class="feature" style="margin-top:10px"><div>🧾</div><div><b>Ketelusan harga:</b><br/><span class="muted">Bulan 1–9 separuh harga. Bermula bulan ke‑10 hingga 60, harga kembali ke kadar bulanan biasa model dipilih.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <section id="testimoni">
+    <div class="container">
+      <h2 class="title">Apa pelanggan kami cakap</h2>
+      <div class="grid-3">
+        <div class="card pad">
+          <p>“Pasang 2.0HP di ruang tamu, bunyi senyap. Bil turun dalam 2 bulan – puas hati!”</p>
+          <div class="muted">— Afiq, Puchong</div>
+        </div>
+        <div class="card pad">
+          <p>“Anak ada alergi. Ionizer++ rasa beza, udara tak berbau. Servis pun on‑time.”</p>
+          <div class="muted">— Kak Laila, Shah Alam</div>
+        </div>
+        <div class="card pad">
+          <p>“Promo 50% memang ringan. Lepas 9 bulan, dah stabil komitmen. Senang urus.”</p>
+          <div class="muted">— Mr. Lim, JB</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" style="background:var(--lg-light)">
+    <div class="container">
+      <h2 class="title">Soalan Lazim (FAQ)</h2>
+      <details open>
+        <summary>Betul ke 50% untuk 9 bulan pertama?</summary>
+        <p class="muted">Ya. Diskaun 50% diaplikasi pada kadar bulanan model anda untuk 9 bulan pertama. Bulan 10–60 ikut kadar bulanan biasa.</p>
+      </details>
+      <details>
+        <summary>Servis percuma macam mana?</summary>
+        <p class="muted">Servis berkala dijadualkan sepanjang kontrak. Pusat servis sah LG akan urus dan maklumkan temujanji.</p>
+      </details>
+      <details>
+        <summary>Kalau rosak?</summary>
+        <p class="muted">Hubungi pusat servis sah LG. Komponen compressor dilindungi waranti 10 tahun (Residential model). Diagnostik & pembaikan mengikut terma LG.</p>
+      </details>
+      <details>
+        <summary>Ada caj pemasangan?</summary>
+        <p class="muted">Pemasangan asas disediakan. Jika ada kerja tambahan (paip panjang, bracket khas), kos tambahan akan dimaklum & dipersetujui terlebih dahulu.</p>
+      </details>
+      <details>
+        <summary>Boleh pilih tarikh pemasangan?</summary>
+        <p class="muted">Boleh. Slot bergantung pada kawasan & ketersediaan juruteknik. Biasanya 2–5 hari bekerja.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CLOSER -->
+  <section id="cta">
+    <div class="container card pad" style="text-align:center">
+      <h2 class="title" style="margin-bottom:6px">Sedia pasang? Nikmati 50% sekarang 🎉</h2>
+      <p class="muted" style="margin-top:0">Klik butang di bawah untuk terus ke WhatsApp. Hanya prospek serius ya 😉</p>
+      <a href="https://www.wasap.my/601120592207/PROMOAIRCOND" class="btn btn-primary" style="justify-content:center">💬 Terus WhatsApp Ejen LG</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
+        <div>
+          <b>LG Ansuran • Promosi 50% Awesome</b>
+          <div class="meta"><span>Ejen Sah LG (Kod: M236163)</span><span>Hotline LG HQ: 1-800-18-7874</span></div>
+        </div>
+        <div class="meta">© <span id="year"></span> Syafiq • Semua hak cipta terpelihara</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const yearEl = document.getElementById('year');
+    yearEl.textContent = new Date().getFullYear();
+
+    const select = document.getElementById('modelSelect');
+    const resultBox = document.getElementById('resultBox');
+    const promoEl = document.getElementById('promo');
+    const normalEl = document.getElementById('normal');
+    const totalEl = document.getElementById('total');
+    const agree = document.getElementById('agree');
+    const waBtn = document.getElementById('waBtn');
+    const bilik = document.getElementById('bilik');
+    const lokasi = document.getElementById('lokasi');
+
+    function formatRM(n){
+      return 'RM' + (Math.round(n*100)/100).toLocaleString('ms-MY', {minimumFractionDigits:2, maximumFractionDigits:2});
+    }
+
+    function compute(){
+      const v = select.value;
+      if(!v){ resultBox.hidden = true; updateBtn(); return; }
+      const [model, priceStr, color] = v.split('|');
+      const base = Number(priceStr);
+      const promo = base * 0.5; // 50% diskaun 9 bulan pertama
+      const total = (promo*9) + (base*51);
+      promoEl.textContent = formatRM(promo) + '/bulan';
+      normalEl.textContent = formatRM(base) + '/bulan';
+      totalEl.textContent = formatRM(total);
+      resultBox.hidden = false;
+      updateBtn();
+    }
+
+    function updateBtn(){
+      const ok = !!select.value && agree.checked;
+      const [model, priceStr, color] = (select.value||'||').split('|');
+      const bilikTxt = (bilik.value||'—');
+      const lokasiTxt = (lokasi.value||'—');
+      // mesej WhatsApp ikut format yang diminta (PROMOAIRCOND)
+      const msg = `PROMOAIRCOND%0A%0AModel%3A%20${encodeURIComponent(model||'')}`+
+                  `%0AWarna%3A%20${encodeURIComponent(color||'')}`+
+                  `%0ASaiz%20bilik%3A%20${encodeURIComponent(bilikTxt)}`+
+                  `%0ALokasi%3A%20${encodeURIComponent(lokasiTxt)}`+
+                  `%0A%0ATolong%20kira%20ansuran%20dan%20slot%20pemasangan.%20Terima%20kasih.`;
+      const url = `https://www.wasap.my/601120592207/${msg}`;
+      waBtn.href = ok ? url : 'javascript:void(0)';
+      waBtn.classList.toggle('disabled', !ok);
+    }
+
+    select.addEventListener('change', compute);
+    agree.addEventListener('change', updateBtn);
+    bilik.addEventListener('input', updateBtn);
+    lokasi.addEventListener('input', updateBtn);
+  </script>
+</body>
+</html>
