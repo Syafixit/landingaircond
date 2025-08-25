@@ -26,8 +26,9 @@
     .badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
     .trust{display:flex;gap:16px;flex-wrap:wrap;color:#e5e7eb;margin-top:14px;font-weight:600}
     .trust span{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);padding:8px 12px;border-radius:999px}
-    .media{aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17}
+    .media{aspect-ratio:9/16;border-radius:16px;overflow:hidden;border:1px solid #23262f;background:#0b0e17;position:relative}
     .media video{width:100%;height:100%;display:block;object-fit:cover}
+    .unmute-overlay{position:absolute;bottom:12px;right:12px;background:rgba(0,0,0,.65);color:#fff;padding:10px 12px;border-radius:10px;font-size:14px;cursor:pointer}
 
     /* Sections */
     section{padding:64px 0}
@@ -92,12 +93,13 @@
       <div>
         <div class="media card">
           <!-- Video portrait dari GitHub -->
-          <video controls autoplay muted playsinline loop>
+          <video id="heroVideo" controls autoplay muted playsinline loop>
             <source src="https://raw.githubusercontent.com/Syafixit/landingaircond/main/pormolg.mp4" type="video/mp4" />
             Browser anda tidak menyokong video.
           </video>
+          <div class="unmute-overlay" id="unmuteBtn">🔊 Tekan untuk bunyi</div>
         </div>
-        <p class="muted" style="margin-top:10px">👆 Video portrait 9:16: hook 50% + jimat elektrik + servis percuma + CTA kira ansuran.</p>
+        <p class="muted" style="margin-top:10px">👆 Video portrait 9:16: hook 50% + jimat elektrik + servis percuma + CTA kira ansuran. <b>Tekan butang bunyi</b> untuk aktifkan audio.</p>
       </div>
     </div>
   </header>
@@ -119,7 +121,7 @@
       <div class="grid-3" style="margin-top:16px">
         <div class="card pad model"><div class="chip">❄️ DUAL Inverter</div><div class="muted">Sejuk cepat, jimat elektrik</div></div>
         <div class="card pad model"><div class="chip">🛡️ Ionizer++</div><div class="muted">Udara lebih bersih & sihat</div></div>
-        <div class="card pad model"><div class="chip">📱 ThinQ (Wi‑Fi)</div><div class="muted">Kawal dari telefon – anytime</div></div>
+        <div class="card pad model"><div class="chip">📱 ThinQ (Wi-Fi)</div><div class="muted">Kawal dari telefon – anytime</div></div>
         <div class="card pad model"><div class="chip">🔧 Servis Percuma</div><div class="muted">Ikut jadual sepanjang kontrak</div></div>
         <div class="card pad model"><div class="chip">💰 50% × 9 bulan</div><div class="muted">Ringankan komitmen awal</div></div>
         <div class="card pad model"><div class="chip">🏅 Waranti 10 tahun</div><div class="muted">Compressor (Residential model)</div></div>
@@ -127,7 +129,7 @@
     </div>
   </section>
 
-  <!-- MODEL PILIHAN (ringkas) -->
+  <!-- MODEL PILIHAN -->
   <section id="model">
     <div class="container">
       <h2 class="title">Pilihan HP (Bulanan Biasa)</h2>
@@ -244,56 +246,76 @@
   </footer>
 
   <script>
-    const yearEl = document.getElementById('year');
-    if(yearEl) yearEl.textContent = new Date().getFullYear();
+    // Tahun semasa di footer
+    (function(){
+      const y = document.getElementById('year');
+      if(y) y.textContent = new Date().getFullYear();
+    })();
 
-    const select = document.getElementById('modelSelect');
-    const resultBox = document.getElementById('resultBox');
-    const promoEl = document.getElementById('promo');
-    const normalEl = document.getElementById('normal');
-    const totalEl = document.getElementById('total');
-    const agree = document.getElementById('agree');
-    const waBtn = document.getElementById('waBtn');
-    const bilik = document.getElementById('bilik');
-    const lokasi = document.getElementById('lokasi');
+    // Unmute overlay handler for hero video
+    (function(){
+      const v = document.getElementById('heroVideo');
+      const btn = document.getElementById('unmuteBtn');
+      if(v && btn){
+        const hideBtn = ()=>{ btn.style.display = 'none'; };
+        btn.addEventListener('click', ()=>{ try{ v.muted = false; v.play && v.play(); hideBtn(); }catch(e){ hideBtn(); } });
+        v.addEventListener('volumechange', ()=>{ if(!v.muted) hideBtn(); });
+        // If autoplay with sound is allowed (desktop), hide button
+        if(!v.muted) hideBtn();
+      }
+    })();
 
-    function formatRM(n){
-      return 'RM' + (Math.round(n*100)/100).toLocaleString('ms-MY', {minimumFractionDigits:2, maximumFractionDigits:2});
-    }
+    // Kalkulator ansuran + WhatsApp gate
+    (function(){
+      const select = document.getElementById('modelSelect');
+      const resultBox = document.getElementById('resultBox');
+      const promoEl = document.getElementById('promo');
+      const normalEl = document.getElementById('normal');
+      const totalEl = document.getElementById('total');
+      const agree = document.getElementById('agree');
+      const waBtn = document.getElementById('waBtn');
+      const bilik = document.getElementById('bilik');
+      const lokasi = document.getElementById('lokasi');
 
-    function compute(){
-      const v = select.value;
-      if(!v){ resultBox.hidden = true; updateBtn(); return; }
-      const [model, priceStr, color] = v.split('|');
-      const base = Number(priceStr);
-      const promo = base * 0.5; // 50% diskaun 9 bulan pertama
-      const total = (promo*9) + (base*51);
-      promoEl.textContent = formatRM(promo) + '/bulan';
-      normalEl.textContent = formatRM(base) + '/bulan';
-      totalEl.textContent = formatRM(total);
-      resultBox.hidden = false;
-      updateBtn();
-    }
+      function formatRM(n){
+        return 'RM' + (Math.round(n*100)/100).toLocaleString('ms-MY', {minimumFractionDigits:2, maximumFractionDigits:2});
+      }
 
-    function updateBtn(){
-      const ok = !!select.value && agree.checked;
-      const [model, priceStr, color] = (select.value||'||').split('|');
-      const bilikTxt = (bilik?.value||'—');
-      const lokasiTxt = (lokasi?.value||'—');
-      const msg = `PROMOAIRCOND%0A%0AModel%3A%20${encodeURIComponent(model||'')}`+
-                  `%0AWarna%3A%20${encodeURIComponent(color||'')}`+
-                  `%0ASaiz%20bilik%3A%20${encodeURIComponent(bilikTxt)}`+
-                  `%0ALokasi%3A%20${encodeURIComponent(lokasiTxt)}`+
-                  `%0A%0ATolong%20kira%20ansuran%20dan%20slot%20pemasangan.%20Terima%20kasih.`;
-      const url = `https://www.wasap.my/601120592207/${msg}`;
-      waBtn.href = ok ? url : 'javascript:void(0)';
-      waBtn.classList.toggle('disabled', !ok);
-    }
+      function updateBtn(){
+        const ok = !!(select && select.value) && !!(agree && agree.checked);
+        const [model, priceStr, color] = ((select && select.value) || '||').split('|');
+        const bilikTxt = (bilik && bilik.value) ? bilik.value : '—';
+        const lokasiTxt = (lokasi && lokasi.value) ? lokasi.value : '—';
+        const msg = `PROMOAIRCOND%0A%0AModel%3A%20${encodeURIComponent(model||'')}`+
+                    `%0AWarna%3A%20${encodeURIComponent(color||'')}`+
+                    `%0ASaiz%20bilik%3A%20${encodeURIComponent(bilikTxt)}`+
+                    `%0ALokasi%3A%20${encodeURIComponent(lokasiTxt)}`+
+                    `%0A%0ATolong%20kira%20ansuran%20dan%20slot%20pemasangan.%20Terima%20kasih.`;
+        const url = `https://www.wasap.my/601120592207/${msg}`;
+        if(waBtn){ waBtn.href = ok ? url : 'javascript:void(0)'; waBtn.classList.toggle('disabled', !ok); }
+      }
 
-    select?.addEventListener('change', compute);
-    agree?.addEventListener('change', updateBtn);
-    bilik?.addEventListener('input', updateBtn);
-    lokasi?.addEventListener('input', updateBtn);
+      function compute(){
+        if(!select || !resultBox) return;
+        const v = select.value;
+        if(!v){ resultBox.hidden = true; updateBtn(); return; }
+        const [model, priceStr] = v.split('|');
+        const base = Number(priceStr);
+        const promo = base * 0.5; // 50% diskaun 9 bulan pertama
+        const total = (promo*9) + (base*51);
+        if(promoEl) promoEl.textContent = formatRM(promo) + '/bulan';
+        if(normalEl) normalEl.textContent = formatRM(base) + '/bulan';
+        if(totalEl) totalEl.textContent = formatRM(total);
+        resultBox.hidden = false;
+        updateBtn();
+      }
+
+      select && select.addEventListener('change', compute);
+      agree && agree.addEventListener('change', updateBtn);
+      bilik && bilik.addEventListener('input', updateBtn);
+      lokasi && lokasi.addEventListener('input', updateBtn);
+      compute();
+    })();
   </script>
 </body>
-</html> 
+</html>
